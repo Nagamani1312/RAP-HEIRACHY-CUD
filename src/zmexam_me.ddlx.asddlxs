@@ -1,0 +1,107 @@
+@Metadata.layer: #CORE
+annotate view ZMEXAM_CDS
+    with 
+{
+@UI: {
+      facet:          [
+                       { id:            'Exams',
+                         purpose:       #STANDARD,
+                         type:          #IDENTIFICATION_REFERENCE,
+                         label:         'List of Exams',
+                         position:      10
+                       }
+                      ]
+    }
+//    @UI.identification: [ {
+//    position: 20 , 
+//    label: 'Studentid'
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 20 , 
+//    label: 'Studentid'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 20 
+//  } ]
+  @EndUserText.label: 'Studentid'
+    Studentid;
+    @UI.identification: [ {
+    position: 10 , 
+    label: 'Examid'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'Examid'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  @EndUserText.label: 'Examid'
+    Examid;
+    @UI.identification: [ {
+    position: 30 , 
+    label: 'Subid'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Subid'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  @EndUserText.label: 'Subid'
+    Subid;
+    @UI.identification: [ {
+    position: 40 , 
+    label: 'Marks'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Marks'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  @EndUserText.label: 'Marks'
+    Marks;
+    @UI.identification: [ {
+    position: 50 , 
+    label: 'Status'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Status'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  @EndUserText.label: 'Status'
+    Status;
+     @UI.identification: [ {
+    position: 60 , 
+    label: 'Parentid'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'Parentid'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  @EndUserText.label: 'Parentid'
+    Parentid;
+     @UI.identification: [ {
+    position: 0 , 
+    label: 'OrderNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'OrderNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  @EndUserText.label: 'OrderNumber'
+   SiblingOrderNumber;
+    
+}

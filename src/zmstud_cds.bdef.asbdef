@@ -1,0 +1,73 @@
+managed implementation in class zbp_mstud_cds_1 unique;
+strict ( 2 );
+with draft;
+define behavior for ZMSTUD_cds alias Student
+persistent table zmstud_t
+draft table zmstud_d
+lock master
+total etag Gender
+authorization master ( instance )
+etag master Lastname
+{
+  create;
+  update;
+  delete;
+   field ( readonly : update ) Studentid;
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+  association _exams { create;with draft; }
+  association _Mentor {
+  link action linkMentor;
+  unlink action unlinkMentor;
+  }
+
+   mapping for zmstud_t{
+  Studentid = studentid;
+  Class = class;
+  Firstname = firstname;
+  Lastname = lastname;
+  Gender = gender;
+  Mentor = mentor;
+  }
+}
+
+define behavior for ZMEXAM_CDS alias Exams
+persistent table zmexam_t
+draft table zmexam_d
+lock dependent by _student
+authorization dependent by _student
+etag master Examid
+{
+  update;
+  delete;
+  field ( readonly ) Studentid;
+  field ( readonly : update ) Examid,SiblingOrderNumber;
+  field ( mandatory : create ) Parentid;
+
+  association _student{ with draft; }
+  association _parent{with draft;
+    link action linkParentid;
+    unlink action unlinkParentid;
+     }
+  association _exam{ with draft; }
+  instance hierarchy zmexam_hry
+  {
+    managed reorder action changeNextSibling;
+    field ( hierarchy-index ) SiblingOrderNumber;
+    ascending association _parent;
+    descending association _exam { with cascading delete; }
+  }
+
+  mapping for zmexam_t{
+  Studentid = studentid;
+  Examid = examid;
+  Marks = marks;
+  Subid = subid;
+  Status = status;
+  Parentid = parentid;
+  SiblingOrderNumber = sibling_order_number;
+  }
+}

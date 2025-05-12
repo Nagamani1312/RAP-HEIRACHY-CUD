@@ -1,0 +1,5 @@
+@EndUserText.label: 'service def'
+define service Zmstud_sd {
+  expose ZMSTUD_cds as Student;
+  expose ZMEXAM_CDS as Exams;
+}
